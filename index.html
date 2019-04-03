@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset="utf-8">
+  <title>JavaScript Challenge</title>
+  </head>
+      
+  
+      
+<script>
+    
+            // Chsllenge 1 
+    
+      function dayTime() { //funtion
+       
+      var today = new Date();
+      var day = today.getDay();
+      var daylist = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"];
+      var hour = today.getHours();
+      var minute = today.getMinutes();
+      var second = today.getSeconds();
+      var prepand = (hour >= 12)? " PM ":" AM ";
+      hour = (hour >= 12)? hour - 12: hour;
+      if (hour===0 && prepand===' PM ') 
+      { 
+      if (minute===0 && second===0)
+      { 
+      hour=24;
+      prepand=' Noon';
+      } 
+      else
+      { 
+      hour=24;
+      prepand=' PM';
+      } 
+      } 
+      if (hour===0 && prepand===' AM ') 
+      { 
+      if (minute===0 && second===0)
+      { 
+      hour=24;
+      prepand=' Midnight';
+      } 
+      else
+      { 
+      hour=24;
+      prepand=' AM';
+      } 
+      } 
+      alert("Today is : " + daylist[day] + "\nCurrent Time : "+hour + prepand + " : " + minute + " : " + second);
+  }
+    
+    
+          //Challenge 2
+    
+    function getUrl() {
+        
+     alert("website URL is: " +document.URL);
+        
+    }
+     
+ 
+    
+              //Challenge 3
+    
+   function strCheck()
+   {
+       
+       var str = String(document.getElementById("A").value);
+       var front = str.substring(0, 4);
+       
+       if (str.length < 4)
+       {
+       return false;
+       }
+       if (front == 'Java' || front == 'java' || 'JAVA') 
+       {
+       alert(true);
+       return true;
+       }
+       else 
+       {
+       alert(false);
+       return false;
+      }
+   }
+   
+
+             //Challenge 4 Largest number
+    
+    function largest() {
+        
+         var num1, num2, num3;
+         num1 = document.getElementById("B");
+         num2 = document.getElementById("C");
+         num3 = document.getElementById("D");
+         num1 = parseInt(num1.value);
+         num2 = parseInt(num2.value);
+         num3 = parseInt(num3.value);
+
+
+        if(num1 > num2 && num1 > num3)
+          {
+            alert(num1+"-is greatest");
+          }
+        else if(num2 > num1 && num2 > num3)
+          {
+            alert(num2+"-is greatest");
+          }
+        else if(num3 > num1 && num3 > num1)
+          {
+            alert(num3+"-is greatest");
+          }
+  }
+    
+    //Challenge 5
+    
+    function capLetter()  {
+    
+        var str = String(document.getElementById("E").value);
+        str = str.split("");
+
+        for(let i = 0; i < str.length; i++){
+            
+           str[0] = str[0].toUpperCase();
+            
+        if(i){
+
+        if(str[i - 1] === " "){
+        str[i] = str[i].toUpperCase(); 
+        }    
+       }
+     }
+        let capstr = str.join('');
+        alert(capstr);
+        return str.join(" ");
+    
+    }
+
+
+    // Challenge 6
+    
+    
+     function timeConvert() 
+    {
+      var num1;
+      num1 = parseInt(document.getElementById("F").value);
+      var hours = (num1 / 60);
+      var rhours = Math.floor(hours);
+      var minutes = (hours - rhours)* 60;
+      var rminutes = Math.round(minutes);
+      alert(num1 + " minutes = " + rhours + "hour(s) and" + rminutes + "minute(s)");
+    }
+    
+</script>
+      
+  <body>
+       
+      <style>
+          
+        body {
+            background-color: #CFA5B4; 
+          }
+          
+        h1  {
+            color: black;
+          
+          }
+          
+        h3  {
+            color: #444140;
+            font-size: 30px;
+            
+          }
+          
+        button {
+           background-color: #A3A3A3; /* Green */
+           border: radius;
+           color: white;
+           padding: 15px 32px;
+      
+          }
+          
+      </style>
+  
+      <center><h1>JavaScript Challenge</h1></center>
+      
+      <h3>Display current date and time</h3>
+      <br>                   
+      <center><button onclick ="dayTime()">Display</button></center>
+      <hr color = "white">
+      
+      <h3>Get the website url</h3><br>                   
+      <center><button onclick ="getUrl()">Get URL</button></center>
+      <hr color = "white">
+      
+      <h3>Does the string start with Java</h3><br>
+      Enter string: <input type="text" id = "A"><br>
+      <center><button onclick ="strCheck()">Check</button></center>
+      <hr color = "white">
+  
+      <h3>Calculate the largest number</h3><br>
+      Enter number 1: <input type="text" id = "B"><br>
+      Enter number 2: <input type="text" id = "C"><br>
+      Enter number 3: <input type="text" id = "D"><br>
+      <center><button onclick ="largest()">Check</button></center>
+      <hr color = "white">
+      
+      <h3>Capitalize the first letter of each word</h3><br>
+      Enter string: <input type="text" id = "E"><br>
+      <center><button onclick ="capLetter()">Capatalize</button></center>
+      <hr color = "white">
+
+      <h3>Convert a number into hours and minutes</h3>
+      <br>
+      Enter number: <input type="text" id = "F"><br>                   
+      <center><button onclick ="timeConvert()">Convert</button></center>
+      <hr color = "white">
+  </body>
+
+</html>
